@@ -1,436 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abdur Rafay | Portfolio</title>
-    <!-- Add inside <head> -->
-    <link rel="icon" type="image/png" href="app-development.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-            color: #fff;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-            position: relative;
-        }
-
-        header {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, #00d4ff, #005eff);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        header h1 {
-            font-size: 3rem;
-            z-index: 1;
-            position: relative;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        header p {
-            color: #e0f7ff;
-            font-size: 1.3rem;
-            z-index: 1;
-            position: relative;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #1b1b1b;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        nav a {
-            color: #fff;
-            padding: 1rem 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: background 0.4s, transform 0.4s, color 0.4s;
-            position: relative;
-            text-decoration: none;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: #00d4ff;
-            transition: 0.4s;
-            transform: translateX(-50%);
-        }
-
-        nav a:hover::after {
-            width: 50%;
-        }
-
-        nav a:hover {
-            color: #00d4ff;
-            transform: scale(1.1);
-        }
-
-        section {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: auto;
-            border-radius: 20px;
-            transition: background-color 0.5s, transform 0.3s;
-        }
-
-        section:hover {
-            background-color: rgba(255, 255, 255, 0.04);
-            transform: scale(1.01);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.4rem;
-            color: #00d4ff;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #00d4ff;
-            margin: 10px auto 0;
-            border-radius: 5px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            border-left: 5px solid #00d4ff;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 25px rgba(0, 212, 255, 0.15);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 35px rgba(0, 212, 255, 0.3);
-            border-left-color: #00f2ff;
-        }
-
-        .card h3 {
-            margin-bottom: 0.7rem;
-            color: #00d4ff;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            color: #d0e7f5;
-            font-size: 1.05rem;
-        }
-
-        .social-icons {
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            color: #00d4ff;
-            margin: 0 0.5rem;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .social-icons a:hover {
-            color: #00b8e6;
-        }
-
-        .social-icons a[title]::after {
-            content: attr(title);
-            position: absolute;
-            bottom: -28px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #1b1b1b;
-            color: #00d4ff;
-            padding: 4px 8px;
-            font-size: 0.75rem;
-            border-radius: 5px;
-            opacity: 0;
-            pointer-events: none;
-            white-space: nowrap;
-            transition: opacity 0.3s ease;
-        }
-
-        .social-icons a:hover::after {
-            opacity: 1;
-        }
-
-        #backToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #00d4ff;
-            color: #000;
-            border: none;
-            padding: 12px 16px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
-            transition: background 0.3s ease;
-            z-index: 999;
-        }
-
-        #backToTop:hover {
-            background-color: #00b8e6;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.15), #0f2027);
-            color: #ccc;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1rem;
-            letter-spacing: 1px;
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: #00d4ff;
-            border-radius: 2px;
-        }
-
-        footer p {
-            margin-top: 1rem;
-            color: #aaa;
-            font-weight: 300;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-
-            section {
-                padding: 2rem 1rem;
-            }
-        }
-
-        .visit-button {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 10px 20px;
-            background-color: #00d4ff;
-            color: #000;
-            font-weight: bold;
-            border: none;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .visit-button:hover {
-            background-color: #00b8e6;
-            transform: scale(1.05);
-        }
-
-        .resume-button {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 10px 20px;
-            background-color: #00d4ff;
-            color: #000;
-            font-weight: bold;
-            border: none;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .resume-button:hover {
-            background-color: #00b8e6;
-            transform: scale(1.05);
-        }
-        
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="portfolio, web developer, abdur rafay, personal portfolio, portfolio design, portfolio website, software developer" />
+    <meta name="description" content="Welcome to Abdur Rafay's Portfolio. Entry-Level Web & Software Developer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="app-development.png" type="image/x-png">
+    <title>Portfolio | ABDUR RAFAY</title>
 </head>
+<body oncontextmenu="return false">
 
-<body>
-    <header>
-        <h1>Abdur Rafay</h1>
-        <p>Entry-Level Web & Software Developer</p>
-    </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<!-- navbar starts -->
+<header>
+        <a href="index.html" class="logo"><i class="fas fa-code"></i> ABDUR RAFAY </a>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="card">
-            <h4>
-                Motivated and detail-oriented developer with a strong foundation in front-end and back-end
-                technologies.
-                Passionate about building interactive, responsive websites and learning new technologies.
-            </h4>
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#work">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+</header>
+<!-- navbar ends -->
+
+
+<!-- hero section starts -->
+<section class="home" id="home">
+    <div id="particles-js"></div>
+
+    <div class="content">
+    <h2>Hi There,<br/> I'm ABDUR <span>RAFAY</span></h2>
+    <p>I am a <span class="typing-text">Responsive Website Developer</span></p>
+    <a href="#about" class="btn"><span>About Me</span>
+      <i class="fas fa-arrow-circle-down"></i>
+    </a>
+    <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" href="https://www.linkedin.com/in/abdur-rafay-254834329" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="github" href="https://github.com/codewithrafay0" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a class="mail" href="mailto:rafayabdur365@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+</section>
+<!-- hero section ends -->
+
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+    
+    <div class="row">
+    <div class="content">
+        <h3>I'm Abdur Rafay</h3>
+        <span class="tag">Entry-Level Web & Software Developer</span>
+        <p>Motivated and detail-oriented aspiring developer seeking an entry-level position in web or software development. 
+        Eager to apply foundational knowledge of front-end and back-end technologies, coding, and problem-solving to support innovative projects and contribute to team success. 
+        Committed to continuous learning and professional development in a dynamic tech environment.</p>
+        
+        <div class="box-container">
+            <div class="box">
+              <p><span> email : </span> rafayabdur365@gmail.com</p>
+              <p><span> phone : </span> +92-318-3243116</p>
+              <p><span> place : </span> Karachi, Pakistan</p>
+            </div>
         </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="card">
-            <h3>SONGS</h3>
-            <h4>A music-focused website with a fully responsive and interactive UI featuring categorized song listings
-                and back-end integration.</h4>
+        
+        <div class="resumebtn">
+            <a href="Abdur Rafay_CV.pdf" target="_blank" class="btn"><span>Resume</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="card">
-            <h3>POLARIS SHIPPING LINES</h3>
-            <h4>Developed a business site for a global logistics company. Used HTML, CSS, Bootstrap, and JavaScript for
-                responsive layout and interactivity.
-            </h4>
-            <a href="https://www.polaris-lines.com" target="_blank" class="visit-button">Visit Website</a>
-        </div>
-        <div class="card">
-            <h3>TECH Store</h3>
-            <h4>An e-commerce platform for laptops featuring product filtering, pricing logic, and user-friendly
-                interface using HTML, CSS, and JS.</h4>
-        </div>
-        <div class="card">
-            <h3>PET BOTTLES Store</h3>
-            <h4>Designed a four-page website to showcase plastic products. Fully responsive layout with interactive
-                elements and price listings.</h4>
-        </div>
-                <div class="card">
-            <h3>SkillEdge Learning</h3>
-            <h4>Developed a fully responsive front-end and back-end website for students totally online where students can login or 
-                register themselfs and with a lots of Courses!
-            </h4>
-            <a href="https://skill-edge-six.vercel.app/" target="_blank" class="visit-button">Visit Website</a>
-        </div>
-    </section>
+    </div>
+    </div>
+</section>
+<!-- about section ends -->
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="card">
-    <h4>Languages</h4>
-    <ul>
-      <li>HTML5, CSS3, JavaScript, JSON</li>
-      <li>PHP, Python, MySQL</li>
-      <li>Laravel</li>
-    </ul>
 
-    <h4>Frameworks & Libraries</h4>
-    <ul>
-      <li>Bootstrap</li>
-      <li>jQuery</li>
-      <li>NLP (Natural Language Processing)</li>
-      <li>Chatbot Development</li>
-    </ul>
+<!-- skills section starts -->
+<section class="skills" id="skills">
+    <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
 
-    <h4>Tools & Platforms</h4>
-    <ul>
-      <li>Git, GitHub</li>
-      <li>WordPress</li>
-      <li>MS Office</li>
-    </ul>
+    <div class="container">
+        <div class="row" id="skillsContainer" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
 
-    <h4>Design & Development</h4>
-    <ul>
-      <li>UI/UX for Responsive Design</li>
-      <li>SEO Optimization</li>
-      <li>Version Control (Git/GitHub)</li>
-      <li>WordPress Development & Customization</li>
-      <li>Architecture Diagramming</li>
-      <li>Data Visualization</li>
-    </ul>
+            <div class="bar"><div class="info"><span>HTML5, CSS3, JavaScript, JSON</span></div></div>
+            <div class="bar"><div class="info"><span>PHP, Python, MySQL, Laravel</span></div></div>
+            <div class="bar"><div class="info"><span>Bootstrap, jQuery</span></div></div>
+            <div class="bar"><div class="info"><span>Chatbot Development, NLP</span></div></div>
+            <div class="bar"><div class="info"><span>WordPress Development</span></div></div>
+            <div class="bar"><div class="info"><span>SEO & Responsive UI/UX Design</span></div></div>
+            <div class="bar"><div class="info"><span>Git, GitHub</span></div></div>
+            <div class="bar"><div class="info"><span>MS Office (Word, Excel, PowerPoint)</span></div></div>
+        </div>
+    </div>
+</section>
+<!-- skills section ends -->
+
+
+<!-- education section starts -->
+<section class="education" id="education">
+  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+
+  <div class="box-container">
+    <div class="box">
+        <div class="content">
+        <h3>BBIT (Bachelor of Business Information Technology)</h3>
+        <p>Virtual University of Pakistan</p>
+        <h4>In Progress</h4>
+        </div>
+    </div>
+
+    <div class="box">
+      <div class="content">
+      <h3>ACCP (Prime 2.0)</h3>
+      <p>Aptech Federal B Area Campus, Karachi</p>
+      <h4>Apr 2024 – In Progress</h4>
+      </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+        <h3>Intermediate (Pre-Engineering)</h3>
+        <p>Govt. Degree Boys College, Buffer Zone, Karachi</p>
+        <h4>Completed</h4>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+        <h3>Matriculation (Science)</h3>
+        <p>Beaconhouse School System, Karachi</p>
+        <h4>Completed</h4>
+        </div>
+    </div>
   </div>
 </section>
+<!-- education section ends -->
 
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <div class="card">
-            <p><strong>Email:</strong> rafayabdur365@gmail.com</p>
-            <p><strong>Phone:</strong> +92-318-3243116</p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/abdur-rafay-254834329"
-                    target="_blank">Abdur Rafay</a></p>
-            <a href="Abdur Rafay_CV.docx" download class="resume-button">Download Resume</a>
-            <a href="Abdur Rafay_CV.pdf" target="_blank" class="resume-button">View Resume</a>
+<!-- work project section starts -->
+<section class="work" id="work">
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
+
+  <div class="box-container">
+
+    <div class="box tilt">
+      <div class="content">
+        <div class="tag"><h3>SONGS</h3></div>
+        <div class="desc"><p>A responsive music website with interactive UI and integrated front-end/back-end features.</p></div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="content">
+        <div class="tag"><h3>POLARIS SHIPPING LINES</h3></div>
+        <div class="desc"><p>Developed and launched a responsive 4-page website for a global logistics business.</p>
+        <a href="https://www.polaris-lines.com" target="_blank" class="btn">Visit</a></div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="content">
+        <div class="tag"><h3>TECH Store</h3></div>
+        <div class="desc"><p>Built a user-friendly online shop for laptops with product categorization and dynamic pricing.</p></div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="content">
+        <div class="tag"><h3>PET BOTTLES Store</h3></div>
+        <div class="desc"><p>Designed a four-page website to showcase plastic products with pricing.</p></div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="content">
+        <div class="tag"><h3>SkillEdge Learning</h3></div>
+        <div class="desc"><p>A responsive full-stack learning platform with login/registration and courses.</p>
+        <a href="https://skill-edge-six.vercel.app/" target="_blank" class="btn">Visit</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- work project section ends -->
+
+
+<!-- experience section starts -->
+<section class="experience" id="experience">
+  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
+  <div class="timeline">
+    <div class="container right">
+      <div class="content">
+        <div class="tag"><h2>Entry-Level Developer</h2></div>
+        <div class="desc"><h3>Open to Opportunities</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- experience section ends -->
+
+
+<!-- certifications section starts -->
+<section class="education" id="certifications">
+  <h1 class="heading"><i class="fas fa-certificate"></i> My <span>Certifications</span></h1>
+  <div class="box-container">
+    <div class="box"><div class="content"><p>Data Science Analytics –HP Life </p></div></div>
+    <div class="box"><div class="content"><p>IT for Business –HP Life </p></div></div>
+    <div class="box"><div class="content"><p>AI for Beginners –HP Life </p></div></div>
+    <div class="box"><div class="content"><p>Cyber Security –HP Life </p></div></div>
+    <div class="box"><div class="content"><p>UX Design –Forage </p></div></div>
+    <div class="box"><div class="content"><p>Software Engineering –Forage </p></div></div>
+    <div class="box"><div class="content"><p>AI Virtual Internship –Forage </p></div></div>
+    <div class="box"><div class="content"><p>AWS –Forage </p></div></div>
+    <div class="box"><div class="content"><p>Intro to CS101 –Saylor Academy </p></div></div>
+    <div class="box"><div class="content"><p>Intro To Python 105 –Saylor Academy </p></div></div>
+    <div class="box"><div class="content"><p>SQL –EDRAAK </p></div></div>
+    <div class="box"><div class="content"><p>Microsoft Office Specialist –OHSE </p></div></div>
+    <div class="box"><div class="content"><p>Front-End Development –Mind Luster </p></div></div>
+    <div class="box"><div class="content"><p>ACCP PRIME 2.0 Term 1 –Aptech Education </p></div></div>
+    <div class="box"><div class="content"><p>AWS Machine Learning –AWS e-Learning </p></div></div>
+    
+    
+  </div>
+</section>
+<!-- certifications section ends -->
+
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
+  <div class="container">
+    <div class="content">
+      
+    <form action="https://api.web3forms.com/submit" method="POST">
+    <!-- Replace with your Access Key -->
+    <input type="hidden" name="access_key" value="238db8d0-5003-4e49-a956-c60e80f7a09c">
+        <div class="form-group">
+          <div class="field"><input type="text" name="name" placeholder="Name" required><i class='fas fa-user'></i></div>
+          <div class="field"><input type="email" name="email" placeholder="Email" required><i class='fas fa-envelope'></i></div>
+          <div class="field"><input type="text" name="phone" placeholder="Phone"><i class='fas fa-phone-alt'></i></div>
+          <div class="message"><textarea placeholder="Message" name="message" required></textarea><i class="fas fa-comment-dots"></i></div>
         </div>
-    </section>
+        <div class="button-area"><button type="submit">Submit <i class="fa fa-paper-plane"></i></button></div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- contact section ends -->
 
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/abdur-rafay-254834329" title="LinkedIn" target="_blank"><i
-                    class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/codewithrafay0" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:rafayabdur365@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        </div>
 
-        <p>&copy; 2025 Abdur Rafay. All rights reserved.</p>
-    </footer>
+<!-- footer section starts -->
+<section class="footer">
+  <div class="box-container">
+      <div class="box">
+          <h3>Abdur Rafay Portfolio</h3>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials 🚀</p>
+      </div>
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#work"><i class="fas fa-chevron-circle-right"></i> projects</a>
+          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+          <a href="#certifications"><i class="fas fa-chevron-circle-right"></i> certifications</a>
+      </div>
+      <div class="box">
+          <h3>contact info</h3>
+          <p><i class="fas fa-phone"></i> +92-318-3243116</p>
+          <p><i class="fas fa-envelope"></i> rafayabdur365@gmail.com</p>
+          <p><i class="fas fa-map-marked-alt"></i> Karachi, Pakistan</p>
+          <div class="share">
+              <a href="https://www.linkedin.com/in/abdur-rafay-254834329" class="fab fa-linkedin" target="_blank"></a>
+              <a href="https://github.com/codewithrafay0" class="fab fa-github" target="_blank"></a>
+              <a href="mailto:rafayabdur365@gmail.com" class="fas fa-envelope" target="_blank"></a>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- footer section ends -->
 
-    <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<!-- scroll top btn -->
+<a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
+
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
+<script src="./assets/js/particles.min.js"></script>
+<script src="./assets/js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
