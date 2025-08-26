@@ -381,15 +381,17 @@ header .logo:hover {
   margin-bottom: 4rem;
   color: #fff;
 }
+
 .skills .heading span {
   color: #00c6ff;
 }
+
 .skills .heading i {
   color: #00c6ff;
   margin-right: 10px;
 }
 
-/* Skills Container */
+/* Container */
 .skills .container {
   max-width: 1000px;
   margin: auto;
@@ -402,58 +404,70 @@ header .logo:hover {
   justify-content: center;
 }
 
-/* Skill Bar Cards */
+/* Skill Box */
 .skills .bar {
-  flex: 1 1 calc(45% - 20px);
+  flex: 1 1 calc(20% - 20px); /* 5 per row desktop */
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(0, 198, 255, 0.2);
   border-radius: 12px;
-  padding: 1.5rem 2rem;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   transition: all 0.3s ease;
-  text-align: left;
   box-shadow: 0 4px 15px rgba(0, 198, 255, 0.1);
 }
+
 .skills .bar:hover {
   transform: translateY(-6px);
-  background: rgba(0, 198, 255, 0.1);
-  box-shadow: 0 6px 20px rgba(0, 198, 255, 0.3);
+  background: rgba(0, 198, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 198, 255, 0.25);
 }
 
-/* Skill Text */
-.skills .bar .info span {
-  font-size: 1.6rem;
+.skills .bar .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon */
+.skills .bar .info i {
+  font-size: 45px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover = only zoom, no color change */
+.skills .bar .info i:hover {
+  transform: scale(1.3);
+}
+
+/* Text under icons */
+.skills .bar .info p {
+  font-size: 1.2rem;
   font-weight: 600;
   color: #e0f7ff;
+  margin: 0;
 }
 
-/* Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 992px) {
-  .skills .bar {
-    flex: 1 1 calc(48% - 15px);
-  }
+  .skills .bar { flex: 1 1 calc(25% - 15px); } /* 4 per row */
 }
+
 @media (max-width: 768px) {
-  .skills {
-    padding: 5rem 5% 4rem;
-  }
-  .skills .bar {
-    flex: 1 1 100%;
-  }
-  .skills .bar .info span {
-    font-size: 1.5rem;
-  }
+  .skills { padding: 5rem 5% 4rem; }
+  .skills .bar { flex: 1 1 calc(33% - 15px); } /* 3 per row */
 }
+
 @media (max-width: 480px) {
-  .skills .heading {
-    font-size: 2.8rem;
-  }
-  .skills .bar {
-    padding: 1.2rem 1.5rem;
-  }
-  .skills .bar .info span {
-    font-size: 1.4rem;
-  }
+  .skills .heading { font-size: 2.8rem; }
+  .skills .bar { flex: 1 1 calc(50% - 10px); padding: 1.5rem; } /* 2 per row */
+  .skills .bar .info p { font-size: 1.1rem; }
 }
+
+
 /* ===== EDUCATION SECTION ===== */
 .education {
   background: #f9fbfd;
